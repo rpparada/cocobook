@@ -19,14 +19,11 @@ class UsuarioPreIns(models.Model):
     rut = models.CharField(max_length=50,unique=False)
     numero_hijos = models.SmallIntegerField()
 
-    plan_preferido = models.ForeignKey(
-                PlanPreIns,
-                on_delete=models.SET_NULL,
-                blank=True,
-                null=True)
+    plan_preferido = models.ForeignKey(PlanPreIns,on_delete=models.CASCADE)
+
 
     clave_pri = models.AutoField(primary_key=True)
     fecha_creacion = models.DateField()
 
     def __str__(self):
-        return self.name
+        return self.nombre
